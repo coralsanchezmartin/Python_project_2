@@ -1,11 +1,32 @@
 import csv
 
 
+def represents_int(s):  # Method that checks if a string is an integer
+    try:
+        int(s)
+        return True
+    except ValueError:
+        return False
+
+
+def represents_float(s):  # Method that checks if a string is a float
+    try:
+        float(s)
+        return True
+    except ValueError:
+        return False
+
+
 def positives(list_post, upper_post):
     list_post_complete = []
     for linea_i in list_post:
-        if linea_i == int:
-            if 0 < linea_i[1] < upper_post:
+        # if linea_i[0] == "Sebastian Graham":
+        # print(linea_i[1])
+        if represents_int(linea_i[1]) or represents_float(linea_i[1]):  # call the method to check whether the value in
+            # the second column (linea_i[1]) is a float or an integer
+            # if linea_i[0] == "Sebastian Graham":
+            # print("inside")
+            if 0 < float(linea_i[1]) < upper_post:
                 list_post_complete.append(linea_i)
 
     return list_post_complete  # return the list
@@ -14,8 +35,8 @@ def positives(list_post, upper_post):
 def negatives(list_post, lower_post):
     list_neg_complete = []
     for linea_i in list_post:
-        if linea_i == int:
-            if 0 > int(linea_i[1]) > lower_post:
+        if represents_int(linea_i[1]) or represents_float(linea_i[1]):
+            if 0 > float(linea_i[1]) > lower_post:
                 list_neg_complete.append(linea_i)
 
     return list_neg_complete
