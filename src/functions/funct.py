@@ -51,6 +51,18 @@ def null(list_null, equal_null):
     return list_null_complete
 
 
+def replace(list_replace):
+    list_replace_complete = []
+    for linea_i in list_replace:
+        place = linea_i[1].replace(",", ".")
+        # print(place)
+        linea_i[1] = place
+        list_replace_complete.append(linea_i)
+        print(list_replace_complete)
+
+    return list_replace_complete
+
+
 def open_csv(new_file):
     with open(new_file) as data:
         entry = csv.reader(data, delimiter=';')
