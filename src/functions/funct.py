@@ -73,11 +73,21 @@ def negatives(list_post, lower_post, column):
     """
     list_neg_complete = []
     for linea_i in list_post:
-        if represents_int(linea_i[column]) or represents_float(linea_i[1]):
+        if represents_int(linea_i[column]) or represents_float(linea_i[column]):
             if 0 > float(linea_i[column]) > lower_post:
                 list_neg_complete.append(linea_i)
 
     return list_neg_complete
+
+
+def outliers_positives(list_post, upper_post):
+    list_outpost_complete = []
+    for linea_i in list_post:
+        if represents_int(linea_i[1]) or represents_float(linea_i[1]):
+            if float(linea_i[1]) > upper_post:
+                list_outpost_complete.append(linea_i)
+
+    return list_outpost_complete
 
 
 def null(list_null, equal_null, column):
