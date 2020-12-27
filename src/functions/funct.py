@@ -2,9 +2,19 @@ import csv
 import os
 
 
-def remove_csv(rem):  # Method to remove all files in a directory, rem is the directory path.
-    for f in os.listdir(rem):
-        os.remove(os.path.join(rem, f))
+def remove_csv(path):  # Method to remove all files in a directory, rem is the directory path.
+    for f in os.listdir(path):
+        extension = f.split(".")  # function that splits a string or list
+        # print(extension)
+        # print('looking at file ' + f)
+        # print('comparing ' + extension[-1] + ' con ' + 'csv')  # comparing the last value of the above list [-1] with
+        # the extension we are interested in this case csv.
+        if extension[-1] == 'csv':
+            # print('inside')  # printing to see whether this comparison works or not, if the extension is different
+            # from csv then it will not appear inside.
+            # print(type(extension))  # it prints the type of variable.
+            os.remove(os.path.join(path, f))
+        # print()
 
 
 def represents_int(s):  # Method that checks if a string is an integer
@@ -81,7 +91,7 @@ def replace(list_replace):  # new method to change commas for dots in the csv.
     """
     list_replace_complete = []
     for linea_i in list_replace:
-        place = linea_i[1].replace(",", ".")    # function .replace to replace something in the csv.
+        place = linea_i[1].replace(",", ".")  # function .replace to replace something in the csv.
         # print(place)
         linea_i[1] = place
         list_replace_complete.append(linea_i)
