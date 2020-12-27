@@ -17,10 +17,10 @@ def remove_csv(path, ext):  # Method to remove all files in a directory, rem is 
         # print()
 
 
-def list_of_colons(list_post):
+def list_of_colons(list_post, column):
     list_colons = []
     for linea_i in list_post:
-        if linea_i[1].__contains__(","):
+        if linea_i[column].__contains__(","):
             list_colons.append(linea_i)
             # print(list_colons)
 
@@ -58,7 +58,7 @@ def positives(list_post, upper_post, column):
             # the value in the second column (linea_i[1]) is a float or an integer
             # if linea_i[0] == "Sebastian Graham":
             # print("inside")
-            if 0 < float(linea_i[1]) < upper_post:
+            if 0 < float(linea_i[column]) < upper_post:
                 list_post_complete.append(linea_i)
 
     return list_post_complete  # return the list
@@ -80,21 +80,21 @@ def negatives(list_post, lower_post, column):
     return list_neg_complete
 
 
-def outliers_positives(list_post, upper_post):
+def outliers_positives(list_post, upper_post, column):
     list_outpost_complete = []
     for linea_i in list_post:
-        if represents_int(linea_i[1]) or represents_float(linea_i[1]):
-            if float(linea_i[1]) > upper_post:
+        if represents_int(linea_i[column]) or represents_float(linea_i[column]):
+            if float(linea_i[column]) > upper_post:
                 list_outpost_complete.append(linea_i)
 
     return list_outpost_complete
 
 
-def outliers_negatives(list_post, lower_post):
+def outliers_negatives(list_post, lower_post, column):
     list_out_negative_complete = []
     for linea_i in list_post:
-        if represents_int(linea_i[1]) or represents_float(linea_i[1]):
-            if float(linea_i[1]) < lower_post:
+        if represents_int(linea_i[column]) or represents_float(linea_i[column]):
+            if float(linea_i[column]) < lower_post:
                 list_out_negative_complete.append(linea_i)
 
     return list_out_negative_complete
