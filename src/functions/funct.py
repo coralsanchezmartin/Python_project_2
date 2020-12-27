@@ -117,6 +117,15 @@ def null(list_null, equal_null, column):
     return list_null_complete
 
 
+def empty(list_post, column):
+    list_empty_complete = []
+    for linea_i in list_post:
+        if len(linea_i[column]) == 0:
+            list_empty_complete.append(linea_i)
+
+    return list_empty_complete
+
+
 def replace(list_replace, column):  # new method to change commas for dots in the csv.
     """
     :param column: it adds the column number where the number that we are looking for is at.
