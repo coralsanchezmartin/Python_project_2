@@ -1,4 +1,6 @@
 
+OUTPUT_PATH = 'C:/Users/coral/PycharmProjects/Python_project_2_fran/src/output'
+
 CSV_PATH = 'C:/Users/coral/PycharmProjects/Python_project_2_fran/'
 CSV_NAME_ORIGINAL = 'src/data/data_last'
 CSV_NAME_REPLACE = 'src/output/data_replace'

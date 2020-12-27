@@ -16,11 +16,12 @@ from src.constants.const import *
 def main():
     csvlist = open_csv(CSV_FILE, DELIMITER_SEMICOLON)
 
+    remove_csv(OUTPUT_PATH)
+
     list_replace = replace(csvlist)
     create_csv(CSV_FILE_REPLACE, list_replace, DELIMITER_COLON)
 
     csv_new_list = open_csv(CSV_FILE_REPLACE, DELIMITER_COLON)
-
     list_positives = positives(csv_new_list, UPPER)
     list_negatives = negatives(csv_new_list, LOWER)
     null_val = null(csvlist, NULL_VALUES)

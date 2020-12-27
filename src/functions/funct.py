@@ -1,4 +1,10 @@
 import csv
+import os
+
+
+def remove_csv(rem):  # Method to remove all files in a directory, rem is the directory path.
+    for f in os.listdir(rem):
+        os.remove(os.path.join(rem, f))
 
 
 def represents_int(s):  # Method that checks if a string is an integer
