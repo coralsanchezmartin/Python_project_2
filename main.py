@@ -18,6 +18,7 @@ def main():
 
     remove_csv(OUTPUT_PATH)
 
+    list_colons = list_of_colons(csvlist)
     list_replace = replace(csvlist)
     create_csv(CSV_FILE_REPLACE, list_replace, DELIMITER_COLON)
 
@@ -26,6 +27,7 @@ def main():
     list_negatives = negatives(csv_new_list, LOWER)
     null_val = null(csvlist, NULL_VALUES)
 
+    create_csv(CSV_FILE_COLONS, list_colons, DELIMITER_COLON)
     create_csv(CSV_FILE_NULL, null_val, DELIMITER_COLON)
     create_csv(CSV_FILE_POSITIVES, list_positives, DELIMITER_COLON)
     create_csv(CSV_FILE_NEGATIVES, list_negatives, DELIMITER_COLON)

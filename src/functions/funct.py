@@ -17,6 +17,16 @@ def remove_csv(path):  # Method to remove all files in a directory, rem is the d
         # print()
 
 
+def list_of_colons(list_post):
+    list_colons = []
+    for linea_i in list_post:
+        if linea_i[1].__contains__(","):
+            list_colons.append(linea_i)
+            # print(list_colons)
+
+    return list_colons
+
+
 def represents_int(s):  # Method that checks if a string is an integer
     try:
         int(s)
