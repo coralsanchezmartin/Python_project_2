@@ -1,11 +1,23 @@
-csv_file = 'C:/Users/coral/PycharmProjects/Python_project_2_fran/src/data/data_last.csv'
 
-csv_file2 = 'C:/Users/coral/PycharmProjects/Python_project_2_fran/src/output/data2_null.csv'
-csv_file3 = 'C:/Users/coral/PycharmProjects/Python_project_2_fran/src/output/data2_positives.csv'
-csv_file4 = 'C:/Users/coral/PycharmProjects/Python_project_2_fran/src/output/data2_negatives.csv'
-csv_file5 = 'C:/Users/coral/PycharmProjects/Python_project_2_fran/src/output/data5_replace.csv'
+CSV_PATH = 'C:/Users/coral/PycharmProjects/Python_project_2_fran/'
+CSV_NAME_ORIGINAL = 'src/data/data_last'
+CSV_NAME_REPLACE = 'src/output/data_replace'
+CSV_NAME_NULL = 'src/output/data_null'
+CSV_NAME_POSITIVES = 'src/output/data_positives'
+CSV_NAME_NEGATIVES = 'src/output/data_negatives'
+EXT_CSV = '.csv'
 
-null_values = 'Null'
-upper = 1000
-lower = -1000
+CSV_FILE = CSV_PATH + CSV_NAME_ORIGINAL + EXT_CSV
 
+CSV_FILE_REPLACE = CSV_PATH + CSV_NAME_REPLACE + EXT_CSV
+
+CSV_FILE_NULL = CSV_PATH + CSV_NAME_NULL + EXT_CSV
+CSV_FILE_POSITIVES = CSV_PATH + CSV_NAME_POSITIVES + EXT_CSV
+CSV_FILE_NEGATIVES = CSV_PATH + CSV_NAME_NEGATIVES + EXT_CSV
+
+
+NULL_VALUES = 'Null'
+UPPER = 1000
+LOWER = -1000
+DELIMITER_SEMICOLON = ';'
+DELIMITER_COLON = ','

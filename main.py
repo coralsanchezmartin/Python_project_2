@@ -14,17 +14,20 @@ from src.constants.const import *
 
 
 def main():
-    csvlist = open_csv(csv_file)
+    csvlist = open_csv(CSV_FILE, DELIMITER_SEMICOLON)
 
-    list_positives = positives(csvlist, upper)
-    list_negatives = negatives(csvlist, lower)
-    null_val = null(csvlist, null_values)
     list_replace = replace(csvlist)
+    create_csv(CSV_FILE_REPLACE, list_replace, DELIMITER_COLON)
 
-    create_csv(csv_file2, null_val)
-    create_csv(csv_file3, list_positives)
-    create_csv(csv_file4, list_negatives)
-    create_csv(csv_file5, list_replace)
+    csv_new_list = open_csv(CSV_FILE_REPLACE, DELIMITER_COLON)
+
+    list_positives = positives(csv_new_list, UPPER)
+    list_negatives = negatives(csv_new_list, LOWER)
+    null_val = null(csvlist, NULL_VALUES)
+
+    create_csv(CSV_FILE_NULL, null_val, DELIMITER_COLON)
+    create_csv(CSV_FILE_POSITIVES, list_positives, DELIMITER_COLON)
+    create_csv(CSV_FILE_NEGATIVES, list_negatives, DELIMITER_COLON)
 
 
 main()
