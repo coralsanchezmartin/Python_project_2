@@ -90,6 +90,16 @@ def outliers_positives(list_post, upper_post):
     return list_outpost_complete
 
 
+def outliers_negatives(list_post, lower_post):
+    list_out_negative_complete = []
+    for linea_i in list_post:
+        if represents_int(linea_i[1]) or represents_float(linea_i[1]):
+            if float(linea_i[1]) < lower_post:
+                list_out_negative_complete.append(linea_i)
+
+    return list_out_negative_complete
+
+
 def null(list_null, equal_null, column):
     """
 

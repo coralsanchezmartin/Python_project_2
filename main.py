@@ -26,6 +26,7 @@ def main():
     list_positives = positives(csv_new_list, UPPER, COLUMN_NUMBER)
     list_negatives = negatives(csv_new_list, LOWER, COLUMN_NUMBER)
     list_out_positives = outliers_positives(csv_new_list, UPPER)
+    list_out_negatives = outliers_negatives(csv_new_list, LOWER)
 
     null_val = null(csvlist, NULL_VALUES, COLUMN_NUMBER)
 
@@ -34,6 +35,7 @@ def main():
     create_csv(CSV_FILE_POSITIVES, list_positives, DELIMITER_COLON)
     create_csv(CSV_FILE_NEGATIVES, list_negatives, DELIMITER_COLON)
     create_csv(CSV_FILE_POSITIVES_OUTLIERS, list_out_positives, DELIMITER_COLON)
+    create_csv(CSV_FILE_NEGATIVES_OUTLIERS, list_out_negatives, DELIMITER_COLON)
 
 
 main()
