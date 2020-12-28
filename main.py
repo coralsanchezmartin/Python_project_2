@@ -19,7 +19,7 @@ def main():
     remove_csv(OUTPUT_PATH, EXTENSION)
 
     list_colons = list_of_colons(csvlist, COLUMN_NUMBER)
-    list_replace = replace(csvlist, COLUMN_NUMBER)
+    list_replace = replace(csvlist, COLUMN_NUMBER, SEARCH_VALUE, REPLACE_VALUE)
     create_csv(CSV_FILE_REPLACE, list_replace, DELIMITER_COLON)
 
     csv_new_list = open_csv(CSV_FILE_REPLACE, DELIMITER_COLON)
