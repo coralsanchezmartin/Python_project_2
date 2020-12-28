@@ -2,23 +2,17 @@ import csv
 import os
 
 
-def foo():
+def current_directory():
     return os.getcwd()  # get current working directory
 
 
 def remove_csv(path, ext):  # Method to remove all files in a directory, rem is the directory path.
     for f in os.listdir(path):
         extension = f.split(".")  # function that splits a string or list
-        # print(extension)
-        # print('looking at file ' + f)
-        # print('comparing ' + extension[-1] + ' con ' + 'csv')  # comparing the last value of the above list [-1] with
-        # the extension we are interested in this case csv.
+
         if extension[-1] == ext:
-            # print('inside')  # printing to see whether this comparison works or not, if the extension is different
-            # from csv then it will not appear inside.
-            # print(type(extension))  # it prints the type of variable.
+
             os.remove(os.path.join(path, f))
-        # print()
 
 
 def list_of_colons(list_post, column):
@@ -28,7 +22,6 @@ def list_of_colons(list_post, column):
         if linea_i[column].__contains__(","):
             list_colons.append(linea_i)
             count += 1
-            # print(list_colons)
 
     return list_colons, count
 
@@ -59,21 +52,15 @@ def positives(list_post, upper_post, column):
     list_post_complete = []
     count = 0  # The list starts at 0
     for linea_i in list_post:
-        # if linea_i[0] == "Sebastian Graham":
-        # print(linea_i[1])
+
         if represents_int(linea_i[column]) or represents_float(linea_i[column]):  # call the method to check whether
             # the value in the second column (linea_i[1]) is a float or an integer
-            # if linea_i[0] == "Sebastian Graham":
-            # print("inside")
+
             if 0 <= float(linea_i[column]) < upper_post:
                 list_post_complete.append(linea_i)
                 count += 1  # It adds 1 with each new element added to the list.
                 # length = list_post_complete.__len__()
 
-                # print('Number of elements in list : ', length)
-                # print(type(length))
-                # count_positives = sum(list_post_complete[0])
-                # print(count_positives)
     return list_post_complete, count  # return the list
 
 
@@ -91,8 +78,6 @@ def negatives(list_post, lower_post, column):
             if 0 > float(linea_i[column]) > lower_post:
                 list_neg_complete.append(linea_i)
                 count += 1
-                # count_negatives = sum(1 for line in list_neg_complete)
-                # print(count_negatives)
 
     return list_neg_complete, count
 
@@ -105,8 +90,6 @@ def outliers_positives(list_post, upper_post, column):
             if float(linea_i[column]) > upper_post:
                 list_outpost_complete.append(linea_i)
                 count += 1
-                # count_outliers_positives = sum(1 for line in list_outpost_complete)
-                # print(count_outliers_positives)
 
     return list_outpost_complete, count
 
@@ -165,11 +148,9 @@ def replace(list_replace, column, search_v, replace_v):  # new method to change 
     count = 0
     for linea_i in list_replace:
         place = linea_i[column].replace(search_v, replace_v)  # function .replace to replace something in the csv.
-        # print(place)
         linea_i[column] = place
         list_replace_complete.append(linea_i)
         count += 1
-        # print(list_replace_complete)
 
     return list_replace_complete, count
 

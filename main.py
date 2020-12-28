@@ -18,6 +18,7 @@ def main():
 
     remove_csv(OUTPUT_PATH, EXTENSION)
 
+    current_directory()
     list_colons, count_colons = list_of_colons(csvlist, COLUMN_NUMBER)
     print('Count in colons csv : ', count_colons)
     list_replace, count_replace = replace(csvlist, COLUMN_NUMBER, SEARCH_VALUE, REPLACE_VALUE)
