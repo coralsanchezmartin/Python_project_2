@@ -3,6 +3,7 @@ import os
 
 
 def current_directory():
+    print(os.getcwd())
     return os.getcwd()  # get current working directory
 
 
@@ -11,7 +12,6 @@ def remove_csv(path, ext):  # Method to remove all files in a directory, rem is 
         extension = f.split(".")  # function that splits a string or list
 
         if extension[-1] == ext:
-
             os.remove(os.path.join(path, f))
 
 
@@ -92,6 +92,15 @@ def outliers_positives(list_post, upper_post, column):
                 count += 1
 
     return list_outpost_complete, count
+
+
+#def outliers(out_positives, out_negatives, column):
+    #out_positives == True
+    #out_negatives == False
+    #for linea_i in list_post:
+        #if represents_int(linea_i[column]) or represents_float(linea_i[column]):
+            #if float(linea_i[column]) > upper_post:
+            #if float(linea_i[column]) < lower_post:
 
 
 def outliers_negatives(list_post, lower_post, column):
