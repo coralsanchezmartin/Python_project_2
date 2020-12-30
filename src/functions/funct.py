@@ -3,7 +3,6 @@ import os
 
 
 def current_directory():
-    print(os.getcwd())
     return os.getcwd()  # get current working directory
 
 
@@ -82,37 +81,21 @@ def negatives(list_post, lower_post, column):
     return list_neg_complete, count
 
 
-def outliers_positives(list_post, upper_post, column):
-    list_outpost_complete = []
+def outliers(list_post, upper_post, lower_post, column, bol_positives, bol_negatives):
+    list_outliers_complete = []
     count = 0
     for linea_i in list_post:
         if represents_int(linea_i[column]) or represents_float(linea_i[column]):
-            if float(linea_i[column]) > upper_post:
-                list_outpost_complete.append(linea_i)
-                count += 1
+            if bol_positives is True and bol_negatives is False:
+                if float(linea_i[column]) > upper_post:
+                    list_outliers_complete.append(linea_i)
+                    count += 1
+            if bol_negatives is True and bol_positives is False:
+                if float(linea_i[column]) < lower_post:
+                    list_outliers_complete.append(linea_i)
+                    count += 1
 
-    return list_outpost_complete, count
-
-
-#def outliers(out_positives, out_negatives, column):
-    #out_positives == True
-    #out_negatives == False
-    #for linea_i in list_post:
-        #if represents_int(linea_i[column]) or represents_float(linea_i[column]):
-            #if float(linea_i[column]) > upper_post:
-            #if float(linea_i[column]) < lower_post:
-
-
-def outliers_negatives(list_post, lower_post, column):
-    list_out_negative_complete = []
-    count = 0
-    for linea_i in list_post:
-        if represents_int(linea_i[column]) or represents_float(linea_i[column]):
-            if float(linea_i[column]) < lower_post:
-                list_out_negative_complete.append(linea_i)
-                count += 1
-
-    return list_out_negative_complete, count
+    return list_outliers_complete, count
 
 
 def null(list_null, equal_null, column):
@@ -171,13 +154,14 @@ def open_csv(new_file, delimiter_param):
     return list_i
 
 
-def create_csv(create_new_csv, csvlist, delimiter_param, first_column, second_column):
+def create_csv(create_new_csv, csvlist, delimiter_param, column_lists):
     output_f = open(create_new_csv, "w+")
     csv_str = ""
 
     for linea_i in csvlist:
-        csv_str += str(linea_i[first_column]) + delimiter_param + str(
-            linea_i[second_column]) + '\n'
+        for column_i in column_lists:
+            csv_str += str(linea_i[column_i]) + delimiter_param
+        csv_str = csv_str[:-1] + '\n'
 
     output_f.write(csv_str)
     output_f.close()
