@@ -45,8 +45,11 @@ def main():
     null_val, count_null = null(csvlist, NULL_VALUES, COLUMN_NUMBER)
     print('Count in null values csv : ', count_null)
 
-    print(counts(list_colons, count_colons))
-    print(counts(null_val, count_null))
+    lists_counts = [list_colons, null_val, list_replace, list_positives, list_negatives, list_out_positives,
+                    list_out_negatives, list_empty_values]
+    counts_compare = [count_colons, count_null, count_replace, count_positive, count_negative, count_out_positive,
+                      count_out_negative, count_empty_values]
+    print(counts(lists_counts, counts_compare))
 
     create_csv(CSV_FILE_COLONS, list_colons, DELIMITER_COLON, columns)
     create_csv(CSV_FILE_NULL, null_val, DELIMITER_COLON, columns)

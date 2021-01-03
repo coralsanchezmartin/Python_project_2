@@ -205,15 +205,20 @@ def replace(list_replace, column, search_v, replace_v):
 
 def counts(lists, count):
     """
-
+    Compares the length of the list with the counts
     :param lists: the list we want to work with
     :param count: the count we are using to compare the count to
     :return: True, if the length of the list matches the count and False if not.
     """
-    if len(lists) == count:
-        return True
-    else:
-        return False
+    for idx, val in enumerate(lists):  # idx is the index for each item of the list, therefore it runs every item of
+        # the list one by one, [the length of lists is 2, meaning that that list has two items, each of this items can
+        # be accessed like this lists[0], lists[1], etc. Inside of the [] is where the list we are using
+        # to compare is at
+
+        if len(lists[idx]) != count[idx]:
+            # when the length of each item of our list is different from the count it returns False
+            return False
+    return True  # Once it has gone through every item of the list it returns True.
 
 
 def open_csv(new_file, delimiter_param):
