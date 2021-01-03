@@ -10,6 +10,7 @@
 
 
 from src.functions.funct import *
+from src.functions.funct_generic import *
 from src.constants.const import *
 
 
