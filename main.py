@@ -19,7 +19,7 @@ def main():
 
     csvlist = open_csv(CSV_FILE, DELIMITER_SEMICOLON)
 
-    remove_csv(currently_working + OUTPUT_PATH, EXTENSION)
+    remove_ext(currently_working + OUTPUT_PATH, EXTENSION)
 
     list_colons, count_colons = list_of_colons(csvlist, COLUMN_NUMBER)
     print('Count in colons csv : ', count_colons)
@@ -44,6 +44,9 @@ def main():
 
     null_val, count_null = null(csvlist, NULL_VALUES, COLUMN_NUMBER)
     print('Count in null values csv : ', count_null)
+
+    print(counts(list_colons, count_colons))
+    print(counts(null_val, count_null))
 
     create_csv(CSV_FILE_COLONS, list_colons, DELIMITER_COLON, columns)
     create_csv(CSV_FILE_NULL, null_val, DELIMITER_COLON, columns)
